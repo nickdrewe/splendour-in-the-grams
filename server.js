@@ -6,6 +6,10 @@ var https = require('https');
 var request = ('request');
 var _ = require('lodash');
 
+var cors = require('cors');
+
+app.use(cors());
+
 var port = Number(process.env.PORT || 5000);
 
 //var host = '123.100.147.113:3450';
