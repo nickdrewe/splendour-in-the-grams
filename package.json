@@ -1,0 +1,17 @@
+{
+  "name": "splendour-in-the-grams",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Drewe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.6.1",
+    "instagram-node-lib": "~0.1.1",
+    "body-parser": "~1.4.3",
+    "lodash": "~2.4.1"
+  }
+}
