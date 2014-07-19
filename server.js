@@ -8,6 +8,8 @@ var _ = require('lodash');
 
 var cors = require('cors');
 
+var interval = 30000;
+
 app.use(cors());
 
 var port = Number(process.env.PORT || 5000);
@@ -19,7 +21,7 @@ var clientSecret = '1229ceaa010c481991aeb61fa322d1b1';
 
 //endpoint for recent media.
 app.get('/recent', function(req, res){
-	res.json({ data : posts });
+	res.json(_.pluck(posts, 'link'));
 });
 
 app.get('/', function(req, res){
@@ -38,7 +40,7 @@ var server = app.listen(port, function() {
 
 function igSearchTag(tag){
 	var host = 'api.instagram.com';
-	var path = '/v1/tags/' + tag + '/media/recent?client_id=' + clientId;
+	var path = '/v1/tags/' + tag + '/media/recent?count=33&client_id=' + clientId;
 	var url = 'https://' + host + path;
 
 	https.get(url, function(res) {
@@ -51,7 +53,24 @@ function igSearchTag(tag){
 	    res.on('end', function() {
 	        var igResponse = JSON.parse(body)
 	        //console.log(igResponse);
-	        sortPosts(igResponse.data, tag);
+
+	        //check status of response
+	        if(igResponse.meta.code === 200){
+	        	//200 status is good, sort response
+	        	console.log(igResponse.meta.code + 'IG API Request Successful');
+	        	sortPosts(igResponse.data, tag);
+	        }else{
+	        	//other status, something went wrong
+	        	console.log('IG API ERROR');
+	        	console.log(igResponse);
+
+	        	//keep running anyway
+	        	setTimeout(function(){
+	        		igSearchTag(tag);
+	        	}, interval);
+
+	        }
+	        
 	    });
 	}).on('error', function(e) {
 	      console.log("Got error: ", e);
@@ -69,15 +88,18 @@ function sortPosts(data, tag){
 
 	posts = _.sortBy(_.uniq(posts, 'link'), ['created']).reverse();
 
-	console.log(posts.length + '========');
+	//console.log(posts.length + '========');
 	//console.log(posts);
 
-	if(posts.length >= 105){
-		posts = posts.slice(5);
+	if(posts.length > 100){
+		var j = posts.length - 100;
+		var k = 0 - j;
+		posts.splice(k, j)
+		console.log(j + ' new posts');
 	}
 	setTimeout(function(){
 		igSearchTag(tag);
-	}, 60000);
+	}, interval);
 
 	
 }
