@@ -1,0 +1,55 @@
+body{
+	margin: 0;
+	overflow: hidden;
+}
+
+.head{
+	height: 60px;
+	background-color: white;
+	display: none;
+
+}
+
+.grid{
+	height: 100%;
+	background-image: url(../img/bg.jpg);
+	background-size: cover;
+	font-size: 0px;
+
+	position: relative;
+
+	.logo{
+		height: 100%;
+		background-image: url(../img/logo.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 60%;
+	}
+
+	.square{
+		width: 20%;
+		//background-color: orange;
+		display: inline-block;
+
+		.image{
+			width: 100%;
+		}
+	}
+
+	.tail{
+		height: 60px;
+		background-color: rgba(0,0,0,.6);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		.tail-logo{
+			display: inline-block;
+			height: 40px;
+			position: absolute;
+			top: 13;
+			left: 10;
+		}
+	}
+}

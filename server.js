@@ -9,6 +9,7 @@ var _ = require('lodash');
 var cors = require('cors');
 
 var interval = 30000;
+var returnMax = 60;
 
 app.use(cors());
 
@@ -30,7 +31,7 @@ app.get('/', function(req, res){
 
 var posts = [];
 
-igSearchTag('chicago');
+igSearchTag('vegas');
 
 //create server and lsiten on port
 var server = app.listen(port, function() {
@@ -78,21 +79,24 @@ function igSearchTag(tag){
 }
 
 function sortPosts(data, tag){
+	posts = [];
 	data.forEach(function(post){
-		var newPost = { 
-			link: post.link,
-			created: post.created_time
-		};
-		posts.push(newPost);
+		if(post.type == 'image'){
+			var newPost = { 
+				link: post.link,
+				created: post.created_time
+			};
+			posts.push(newPost);
+		}
 	});
 
-	posts = _.sortBy(_.uniq(posts, 'link'), ['created']).reverse();
+	//posts = _.sortBy(_.uniq(posts, 'link'), ['created']).reverse();
 
 	//console.log(posts.length + '========');
 	//console.log(posts);
 
-	if(posts.length > 100){
-		var j = posts.length - 100;
+	if(posts.length > returnMax){
+		var j = posts.length - returnMax;
 		var k = 0 - j;
 		posts.splice(k, j)
 		console.log(j + ' new posts');

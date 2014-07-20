@@ -25,8 +25,7 @@ function sortPosts(posts){
 	//on first sort, use the whole lot
 	if(currentPosts.length == 0){
 		currentPosts = posts;
-		//console.log(currentPosts);
-		quePosts(posts);
+		quePosts(posts, true);
 
 	//every other time, find the difference between current
 	//posts and new posts
@@ -41,7 +40,7 @@ function sortPosts(posts){
 	}
 }
 
-function quePosts(posts){
+function quePosts(posts, first){
 	var wait = interval / posts.length;
 
 	var postsLength = posts.length;
@@ -49,13 +48,40 @@ function quePosts(posts){
 		var delay = i * wait;
 		var post = posts[i];
 
-		addPost(post, delay);
+
+		if(first && i < 16){
+			//for the first 16 posts, add in order
+			addPost(post, delay, i + 1);
+		}else{
+			//everything else, do at random
+			addPost(post, delay);
+		}
 	}
 }
 
 
-function addPost(post, delay){
+function addPost(post, delay, square){
 	setTimeout(function(){
-		$('.posts').append('<img src="' + post +'media/?size=t"/>');
+
+		if(square){
+			var squareId = square;
+		}else{
+			var squareId = randomIntFromInterval(1, 15);
+		}
+
+		$('#' + squareId).fadeOut(300, function(){
+			$(this).attr('src',post +'media/?size=m').bind('onreadystatechange load', function(){
+				if (this.complete) $(this).fadeIn(300);
+			});
+		});
+
+		//handle img errors
+		$('img').error(function(){
+		        $(this).attr('src', 'img/logo-tile.jpg');
+		});
 	}, delay);
+}
+
+function randomIntFromInterval(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
 }
