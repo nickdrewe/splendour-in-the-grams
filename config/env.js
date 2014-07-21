@@ -4,7 +4,7 @@ var pe = process.env;
 
 module.exports = {
 	public: pe.IN_PUBLIC || 'public',
-	port: pe.IN_PORT || 5000,
+	port: pe.PORT || 5000,
 	instagram: {
 		interval: pe.IN_INTERVAL || 60000,
 		clientId: pe.IN_CLIENTID,
