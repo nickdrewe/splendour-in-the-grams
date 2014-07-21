@@ -1,4 +1,4 @@
-var url = 'http://safe-island-6353.herokuapp.com/';
+var url = 'http://safe-island-6353.herokuapp.com/recent';
 var interval = 60000;
 var currentPosts = [];
 
