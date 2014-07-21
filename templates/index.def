@@ -1,16 +1,15 @@
 <html>
 <head>
-<title>Splendour In The Grams</title>
+<title>Splendour In The Grams - A live feed of #SplendourInTheGrass</title>
 
 <script src="bower_components/lodash/dist/lodash.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="js/splendour.js"></script>
 <script src="js/soundmanager2.js"></script>
 
-
-
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
+<link rel="stylesheet" type="text/css" href="css/fontello.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -65,30 +64,30 @@
 			<img class="image" id="15" src=""/>
 		</div>
 	</div>
-
 	<div class="tail">
-		<script>
-			soundManager.setup({
-			  url: '/swf/',
-			  onready: function() {
-			    var mySound = soundManager.createSound({
-			      id: 'triplej',
-			      url: 'http://shoutmedia.abc.net.au:10426/;',
-			      autoPlay: false
-			    });
-			    //mySound.play();
-			  },
-			  ontimeout: function() {
-			    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
-			  }
-			});
-		</script>
-		<img class="tail-logo" src="img/logo.png">
-		<div class="controls">
-			<div class="play control" onClick="soundManager.play('triplej')">play-</div>
-			<div class="pause control" onClick="soundManager.pause('triplej')">pause</div>
+		<div class="logo-container">
+			<img class="tail-logo" src="img/logo.png">
+			<div class="logo-text">
+				Made by @nickdrewe & @_mattway and nothing to do with triplej, they just play cool music.
+			</div>
+		</div>
+		
+		<div class="player">
+			<div class="controls">
+				<div class="play control" onClick="play()"><i class="icon-play-1"></i></div>
+				<div class="pause control" onClick="pause()"><i class="icon-pause-1"></i></div>
+			</div>
+			<div class="triple-j-logo">
+				<a href="http://www.abc.net.au/triplej/">
+					<img class="j-logo" src="img/triplej-white.png"/>
+				</a>
+			</div>
 		</div>
 	</div>
+	<div class="share-container">
+
+	</div>
 </div>
+<script src="stream.js"></script>
 </body>
 </html>
