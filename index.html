@@ -3,9 +3,9 @@
 <title>Splendour In The Grams - A live feed of #SplendourInTheGrass</title>
 
 <script src="bower_components/lodash/dist/lodash.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="splendour.js"></script>
-<script src="soundmanager2.js"></script>
+<script src="soundmanager2-jsmin.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/fontello.css">
@@ -85,7 +85,10 @@
 		</div>
 	</div>
 	<div class="share-container">
-
+		<div class="twitter">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="splendourinthegrams.com" data-text="Splendour In The Grams - A live feed of #SplendourInTheGrass" data-via="nickdrewe">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
 	</div>
 </div>
 <script src="stream.js"></script>
