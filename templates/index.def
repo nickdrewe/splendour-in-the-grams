@@ -2,6 +2,8 @@
 <head>
 <title>Splendour In The Grams - A live feed of #SplendourInTheGrass</title>
 
+<meta name="viewport" content="initial-scale=1">
+
 <script src="bower_components/lodash/dist/lodash.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="js/splendour.js"></script>
