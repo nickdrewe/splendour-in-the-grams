@@ -1,5 +1,5 @@
 var url = 'http://localhost:5000/recent';
-var interval = 30000;
+var interval = 60000;
 var currentPosts = [];
 
 requestPosts();

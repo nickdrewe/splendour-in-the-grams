@@ -8,8 +8,8 @@ var _ = require('lodash');
 
 var cors = require('cors');
 
-var interval = 30000;
-var returnMax = 60;
+var interval = 60000;
+var returnMax = 33;
 
 app.use(cors());
 
