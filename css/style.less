@@ -1,6 +1,7 @@
 body{
 	margin: 0;
 	overflow: hidden;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .head{
@@ -20,7 +21,7 @@ body{
 
 	.logo{
 		height: 100%;
-		background-image: url(../img/logo.png);
+		background-image: url(../img/logo-home.png);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 60%;
@@ -44,23 +45,75 @@ body{
 		left: 0;
 		right: 0;
 
-		.tail-logo{
-			display: inline-block;
-			height: 40px;
+		.logo-container{
 			position: absolute;
-			top: 13;
-			left: 10;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+
+
+			.tail-logo{
+				position: absolute;
+				height: 35px;
+				top: 5;
+				left: 10;
+			}
+
+			.logo-text{
+				position: absolute;
+				left: 5;
+				bottom: 5;
+				font-size: 10px;
+				color: white;
+				width: 100%;
+
+			}
+
+
 		}
-		.controls{
+
+		
+		.player{
 			position: absolute;
 			right: 0;
+			bottom: 0;
+			top: 0;
 
-			.control{
+			.triple-j-logo{
+				height: 40px;
 				display: inline-block;
-				color: white;
-				font-size: 30px;
+				//padding: 7px;
+
+				.j-logo{
+					margin-top: 8px;
+					margin-right: 7px;
+					height: 40px;
+				}
 			}
-		}
-		
+
+			.controls{
+				display: inline-block;
+				vertical-align: 6px;
+
+				.control{
+					display: inline-block;
+					color: white;
+					font-size: 30px;
+					cursor: pointer;
+				}
+
+				.pause{
+					display: none;
+				}
+			}
+
+		}		
+	}
+
+	.share-container{
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 }
