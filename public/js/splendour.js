@@ -66,7 +66,7 @@ function addPost(post, delay, square){
 		if(square){
 			var squareId = square;
 		}else{
-			var squareId = randomIntFromInterval(1, 15);
+			var squareId = randomIntFromInterval(1, 16);
 		}
 
 		$('#' + squareId).fadeOut(300, function(){
