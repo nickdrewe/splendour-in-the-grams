@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Splendour In The Grams</title>
+
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="splendour.js"></script>
+<script src="soundmanager2.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+<body>
+<div class="head">
+
+</div>
+<div class="grid">
+	<div class="logo">
+		<div class="square">
+			<img class="image" id="1" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="2" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="3" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="4" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="5" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="6" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="7" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="8" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="9" src="" />
+		</div>
+		<div class="square">
+			<img class="image" id="10" src=""/>
+		</div>
+		<div class="square">
+			<img class="image" id="11" src=""/>
+		</div>
+		<div class="square">
+			<img class="image" id="12" src=""/>
+		</div>
+		<div class="square">
+			<img class="image" id="13" src=""/>
+		</div>
+		<div class="square">
+			<img class="image" id="14" src=""/>
+		</div>
+		<div class="square">
+			<img class="image" id="15" src=""/>
+		</div>
+	</div>
+
+	<div class="tail">
+		<script>
+			soundManager.setup({
+			  url: '/swf/',
+			  onready: function() {
+			    var mySound = soundManager.createSound({
+			      id: 'triplej',
+			      url: 'http://shoutmedia.abc.net.au:10426/;',
+			      autoPlay: false
+			    });
+			    //mySound.play();
+			  },
+			  ontimeout: function() {
+			    // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
+			  }
+			});
+		</script>
+		<img class="tail-logo" src="img/logo.png">
+		<div class="controls">
+			<div class="play control" onClick="soundManager.play('triplej')">play-</div>
+			<div class="pause control" onClick="soundManager.pause('triplej')">pause</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
