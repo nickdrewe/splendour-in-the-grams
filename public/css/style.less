@@ -4,6 +4,18 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+a:link {
+    color: #ffc603;
+}
+
+a:visited {
+    color: #ffc603;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
 .head{
 	height: 60px;
 	background-color: white;
@@ -25,6 +37,7 @@ body{
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 60%;
+		//margin: 0 auto;
 	}
 
 	.square{
@@ -76,14 +89,21 @@ body{
 		
 		.player{
 			position: absolute;
-			right: 0;
-			bottom: 0;
+			right: 10;
+			bottom: 3;
 			top: 0;
 
 			.triple-j-logo{
-				height: 40px;
+				height: 100%;
+				width: 45px;
 				display: inline-block;
-				//padding: 7px;
+				background-image: url(../img/triplej-white.png);
+				background-position: center;
+				background-size: 40px;
+				background-repeat: no-repeat;
+
+				&:hover{ background-image: url(../img/triplej-red.png) };
+
 
 				.j-logo{
 					margin-top: 8px;
@@ -94,13 +114,19 @@ body{
 
 			.controls{
 				display: inline-block;
-				vertical-align: 6px;
+				vertical-align: 16px;
 
 				.control{
 					display: inline-block;
 					color: white;
 					font-size: 30px;
 					cursor: pointer;
+				}
+
+				.play{
+					color: #ffc603;
+
+					&:hover{color: #ffffff};
 				}
 
 				.pause{
@@ -113,11 +139,16 @@ body{
 
 	.share-container{
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 7;
+		left: 7;
 
 		.twitter{
 			display: inline-block;
+		}
+
+		.facebook{
+			display: inline-block;
+			margin-right: 7;
 		}
 	}
 }

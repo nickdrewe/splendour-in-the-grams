@@ -2,10 +2,13 @@
 <head>
 <title>Splendour In The Grams - A live feed of #SplendourInTheGrass</title>
 
+<meta name="viewport" content="initial-scale=1">
+
 <script src="bower_components/lodash/dist/lodash.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="js/splendour.js"></script>
 <script src="js/soundmanager2.js"></script>
+<script src="js/scale.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/fontello.css">
@@ -13,9 +16,16 @@
 
 </head>
 <body>
-<div class="head">
 
-</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=600164226766852&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="grid">
 	<div class="logo">
 		<div class="square">
@@ -63,12 +73,15 @@
 		<div class="square">
 			<img class="image" id="15" src=""/>
 		</div>
+		<div class="square">
+			<img class="image" id="16" src=""/>
+		</div>
 	</div>
 	<div class="tail">
 		<div class="logo-container">
 			<img class="tail-logo" src="img/logo.png">
 			<div class="logo-text">
-				Made by @nickdrewe & @_mattway and nothing to do with triplej, they just play cool music.
+				Created by <a href="http://twitter.com/nickdrewe" target="_blank">@nickdrewe</a> (<a href="mailto:nick.drewe@gmail.com" target="_blank">email</a>) & <a href="http://twitter.com/_mattway" target="_blank">@_mattway</a> and nothing to do with triplej, they just play cool music.
 			</div>
 		</div>
 		
@@ -77,15 +90,20 @@
 				<div class="play control" onClick="play()"><i class="icon-play-1"></i></div>
 				<div class="pause control" onClick="pause()"><i class="icon-pause-1"></i></div>
 			</div>
-			<div class="triple-j-logo">
-				<a href="http://www.abc.net.au/triplej/">
-					<img class="j-logo" src="img/triplej-white.png"/>
-				</a>
-			</div>
+			<a href="http://www.abc.net.au/triplej/" target="_blank">
+				<div class="triple-j-logo">			
+				</div>
+			</a>
 		</div>
 	</div>
 	<div class="share-container">
-
+		<div class="facebook">
+			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		</div>
+		<div class="twitter">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="splendourinthegrams.com" data-text="Splendour In The Grams - A live feed of #SplendourInTheGrass" data-via="nickdrewe">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
 	</div>
 </div>
 <script src="js/stream.js"></script>
